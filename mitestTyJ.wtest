@@ -1,0 +1,52 @@
+import tomyjerry.*
+
+describe "tom y jerry" {
+  test "tom come a jerry y nibbles" {
+    assert.equals(10,tom.velocidadMaxima())
+
+    tom.comer(jerry)
+
+    assert.equals(15.2 , tom.velocidadMaxima())
+
+    tom.correr(24)
+
+    assert.equals(14,tom.velocidadMaxima())
+
+    tom.comer(nibbles)
+
+    assert.equals(18.7,tom.velocidadMaxima())
+
+    jerry.cumplirAnios()
+
+    tom.comer(jerry)
+
+    assert.equals(25.9,tom.velocidadMaxima())
+
+    tom.correr(38)
+
+    assert.equals(24,tom.velocidadMaxima())
+
+  }
+}
+
+describe "Poder y Querer comer" {
+  test "Tom come a cierta distancia si le conviene" {
+    // Al inicio, Tom no puede comer a Jerry si está a 120 metros
+assert.notThat(tom.puedeComer(120))
+// Tampoco quiere comerlo porque no puede
+assert.notThat(tom.quiereComer(jerry, 120))
+
+// Tom puede comer a Nibbles si está a 96 metros
+assert.that(tom.puedeComer(96))
+// Pero no lo va a querer comer, porque a pesar de poder, solo recibirá 47 de energía
+assert.notThat(tom.quiereComer(nibbles, 96))
+
+// En cambio, si Nibbles está a 60 metros, Tom lo puede comer
+assert.that(tom.puedeComer(60))
+// Y también lo va a querer comer (recibiría 47 de energía)
+assert.that(tom.quiereComer(nibbles, 60))
+   
+  }
+}
+
+
